@@ -4,7 +4,7 @@ import { defineEmits } from "vue";
 const emit = defineEmits(["click"]);
 
 const levelClick = () => {
-  emit("click", true);
+  emit("click");
 };
 </script>
 <template>

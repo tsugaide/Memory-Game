@@ -7,9 +7,14 @@ import Statisik from "./components/Statisik.vue";
 import ButtonLevel from "./components/ButtonLevel.vue";
 import SideBarLevel from "./components/SideBarLevel.vue";
 
-const isBtnLevelClick = ref(false);
+const jmlBtnLevelClick = ref(0);
 const level = () => {
-  isBtnLevelClick.value = !isBtnLevelClick.value;
+  if (jmlBtnLevelClick.value < 2) {
+    jmlBtnLevelClick.value++;
+    console.log(jmlBtnLevelClick.value);
+  } else {
+    jmlBtnLevelClick.value = 0;
+  }
 };
 </script>
 <template>
@@ -18,5 +23,5 @@ const level = () => {
   <Card />
   <Statisik />
   <ButtonLevel @click="level" />
-  <SideBarLevel :hidden="isBtnLevelClick" />
+  <SideBarLevel :hidden="jmlBtnLevelClick" />
 </template>

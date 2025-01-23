@@ -5,7 +5,7 @@ import { cardFunction } from "@/stores/card.js";
 
 const props = defineProps({
   hidden: {
-    type: Boolean,
+    type: Number,
     required: true,
   },
 });
@@ -15,14 +15,15 @@ const pilihLevel = (levelId) => {
   cardFunction().cards.images = [];
   cardFunction().randomImage();
   cardFunction().shuffleImage();
-  console.log(levelsFunction().levelPick);
-  console.log(levelsFunction().id);
 };
 </script>
 <template>
   <div
-    class="bg-[url(/src/assets/level.svg)] bg-no-repeat bg-contain bg-center w-72 h-80 absolute top-32 left-0 transition-all"
-    :class="{ 'left-0': hidden }"
+    class="bg-[url(/src/assets/level.svg)] bg-no-repeat bg-contain bg-center w-72 h-80 absolute -translate-x-72 top-32 transition-transform"
+    :class="{
+      'translate-x-0': props.hidden == 1,
+      'translate-x-72': props.hidden == 2,
+    }"
   >
     <h1 class="text-center mt-10">PILIH LEVELMU</h1>
     <div class="flex justify-center gap-4 mt-8 mx-10 flex-wrap">
