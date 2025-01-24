@@ -32,9 +32,14 @@ const pilihLevel = (levelId) => {
         v-for="(item, id) in levelsFunction().levels"
         :key="id"
         @click="pilihLevel(id)"
-        class="cursor-pointer flex gap-1 w-20 h-14 bg-[url(/src/assets/BorderLevel.svg)] items-center bg-center bg-no-repeat bg-contain"
+        class="cursor-pointer flex gap-1 w-20 h-14 bg-[url(/src/assets/BorderLevel.svg)] justify-center items-center bg-center bg-no-repeat bg-contain"
       >
-        <img src="" />
+        <div class="flex">
+          <div class="w-3 h-3 bg-[#87ceeb] border border-black -rotate-2"></div>
+          <div
+            class="w-3 h-3 bg-[#87ceeb] border border-black z-10 -ml-1 mt-2 rotate-6"
+          ></div>
+        </div>
         <h1 class="">{{ item.desk }}</h1>
       </div>
     </div>
