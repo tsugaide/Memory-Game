@@ -21,6 +21,7 @@ onMounted(() => {
 watch(
   () => timeStart.finish,
   (newValue) => {
+    divs.value = document.querySelectorAll(".card-inner");
     if (!newValue) {
       [...divs.value].forEach((element) => {
         element.classList.add("flip");

@@ -5,7 +5,7 @@ import { cardFunction } from "@/stores/card.js";
 
 const props = defineProps({
   hidden: {
-    type: Number,
+    type: Boolean,
     required: true,
   },
 });
@@ -21,8 +21,7 @@ const pilihLevel = (levelId) => {
   <div
     class="bg-[url(/src/assets/level.svg)] bg-no-repeat bg-contain bg-center w-72 h-80 absolute -translate-x-72 top-32 transition-transform"
     :class="{
-      'translate-x-0': props.hidden == 1,
-      'translate-x-72': props.hidden == 2,
+      'translate-x-0': props.hidden,
     }"
   >
     <h1 class="text-center mt-10">PILIH LEVELMU</h1>
