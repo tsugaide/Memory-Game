@@ -1,16 +1,17 @@
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { levelsFunction } from "./dataLevels";
 import { cardFunction } from "./card";
 
 export const timeFunction = defineStore("waktu", () => {
-  const time = computed(() => levelsFunction().levelPick.waktu);
+  const time = ref(levelsFunction().levelPick.waktu);
   const finish = ref(true);
   let interval;
   const start = () => {
     interval = setInterval(() => {
-      dynamicTime.value--;
-      if (dynamicTime.value <= 0) {
+      time.value--;
+
+      if (time.value <= 0) {
         stop();
         cardFunction().cards.lose = true;
       }

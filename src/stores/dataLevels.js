@@ -4,10 +4,10 @@ export const levelsFunction = defineStore("level-data", () => {
   const id = ref(0);
   const levels = reactive([
     {
-      waktu: 20,
-      kartu: 9,
-      cols: 3,
-      desk: "3 X 3",
+      waktu: 15,
+      kartu: 8,
+      cols: 4,
+      desk: "4 X 2",
     },
     {
       waktu: 40,
@@ -29,9 +29,7 @@ export const levelsFunction = defineStore("level-data", () => {
     },
   ]);
 
-  const levelPick = computed(() => {
-    return levels[id.value];
-  });
+  const levelPick = computed(() => levels[id.value]);
 
   return { levels, id, levelPick };
 });

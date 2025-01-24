@@ -1,5 +1,6 @@
 <script setup>
 import { timeFunction } from "@/stores/time";
+import { computed } from "vue";
 
 const currentTime = timeFunction();
 </script>

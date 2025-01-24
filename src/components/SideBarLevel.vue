@@ -2,6 +2,7 @@
 import { defineProps } from "vue";
 import { levelsFunction } from "../stores/dataLevels.js";
 import { cardFunction } from "@/stores/card.js";
+import { timeFunction } from "@/stores/time.js";
 
 const props = defineProps({
   hidden: {
@@ -15,6 +16,7 @@ const pilihLevel = (levelId) => {
   cardFunction().cards.images = [];
   cardFunction().randomImage();
   cardFunction().shuffleImage();
+  timeFunction().time = levelsFunction().levelPick.waktu;
 };
 </script>
 <template>
