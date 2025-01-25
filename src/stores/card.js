@@ -3,6 +3,7 @@ import { ref, reactive } from "vue";
 import { levelsFunction } from "./dataLevels";
 
 export const cardFunction = defineStore("card", () => {
+  const levelsFungsi = levelsFunction();
   const listImg = [
     "cery",
     "hati",
@@ -19,7 +20,7 @@ export const cardFunction = defineStore("card", () => {
   ];
   const randomImage = () => {
     const indexSelect = [];
-    for (let index = 0; index < levelsFunction().levelPick.kartu / 2; ) {
+    for (let index = 0; index < levelsFungsi.levelPick.kartu / 2; ) {
       const randomIndex = Math.floor(Math.random() * listImg.length);
       if (!indexSelect.includes(randomIndex)) {
         indexSelect.push(randomIndex);

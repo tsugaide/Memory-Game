@@ -6,19 +6,23 @@ import { levelsFunction } from "./dataLevels";
 import { statFunction } from "./statisitk";
 
 export const resetFunction = defineStore("reset-card", () => {
+  const timeFungsi = timeFunction();
+  const statFungsi = statFunction();
+  const cardFungsi = cardFunction();
+  const levelsFungsi = levelsFunction();
   const isReset = ref(false);
 
   const reset = () => {
     isReset.value = true;
-    timeFunction().time = levelsFunction().levelPick.waktu;
-    cardFunction().cards.selectedIds = [];
-    cardFunction().cards.images = [];
-    cardFunction().cards.win = false;
-    cardFunction().cards.lose = false;
-    cardFunction().cards.matches = 0;
-    cardFunction().randomImage();
-    cardFunction().shuffleImage();
-    statFunction().statistikMenang[2].value = 0;
+    timeFungsi.time = levelsFungsi.levelPick.waktu;
+    cardFungsi.cards.selectedIds = [];
+    cardFungsi.cards.images = [];
+    cardFungsi.cards.win = false;
+    cardFungsi.cards.lose = false;
+    cardFungsi.cards.matches = 0;
+    cardFungsi.randomImage();
+    cardFungsi.shuffleImage();
+    statFungsi.statistikMenang[2].value = 0;
   };
 
   return { isReset, reset };

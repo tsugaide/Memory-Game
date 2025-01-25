@@ -5,6 +5,21 @@ import { levelsFunction } from "./dataLevels.js";
 import { cardFunction } from "./card.js";
 
 export const statFunction = defineStore("statistik", () => {
+  const levelFactor = reactive({
+    "4 X 2": 1,
+    "4 X 3": 1.5,
+    "4 X 4": 2,
+    "5 X 4": 3,
+  });
+
+  const skor = computed(() =>
+    Math.round(
+      ((levelFactor[levelsFunction().levelPick.desk] *
+        levelsFunction().levelPick.waktu) /
+        (statistikMenang[1].value + statistikMenang[2].value)) *
+        100
+    )
+  );
   const statistikMenang = reactive([
     { title: "Level", value: computed(() => levelsFunction().levelPick.desk) },
     {
@@ -25,6 +40,11 @@ export const statFunction = defineStore("statistik", () => {
       ),
       desk: "%",
     },
+    {
+      title: "Skor",
+      value: skor,
+      desk: "point",
+    },
   ]);
 
   const statistikKalah = reactive([
@@ -32,5 +52,5 @@ export const statFunction = defineStore("statistik", () => {
     { title: "Benar", value: computed(() => cardFunction().cards.matches) },
   ]);
 
-  return { statistikMenang, statistikKalah };
+  return { statistikMenang, statistikKalah, levelFactor, skor };
 });

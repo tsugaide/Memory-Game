@@ -24,7 +24,7 @@ const reset = () => {
           </h1>
           <img src="../assets/win.png" alt="" class="w-10 h-8" />
         </div>
-        <div class="absolute top-24 text-xs text-[#fefaf8] left-9">
+        <div class="absolute top-20 text-xs text-[#fefaf8] left-9">
           <ul>
             <li v-for="stat in stats.statistikMenang" class="mb-1">
               {{ stat.title }}: {{ stat.value }} {{ stat.desk }}

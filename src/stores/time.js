@@ -4,16 +4,17 @@ import { levelsFunction } from "./dataLevels";
 import { cardFunction } from "./card";
 
 export const timeFunction = defineStore("waktu", () => {
-  const time = ref(levelsFunction().levelPick.waktu);
+  const levelsFungsi = levelsFunction();
+  const cardFungsi = cardFunction();
+  const time = ref(levelsFungsi.levelPick.waktu);
   const finish = ref(true);
   let interval;
   const start = () => {
     interval = setInterval(() => {
       time.value--;
-
       if (time.value <= 0) {
         stop();
-        cardFunction().cards.lose = true;
+        cardFungsi.cards.lose = true;
       }
     }, 900);
   };

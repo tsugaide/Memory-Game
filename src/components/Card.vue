@@ -64,6 +64,8 @@ const checkMatch = () => {
     cardFungsi.cards.shuffledImages[second];
   if (benar) {
     cardFungsi.cards.matches++;
+    divs.value[first].style.pointerEvents = "none";
+    divs.value[second].style.pointerEvents = "none";
     if (cardFungsi.cards.matches === cardFungsi.cards.images.length / 2) {
       setTimeout(() => {
         timeStart.stop();
