@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { auth } from "@/firebase";
+import { signOut } from "firebase/auth";
 const logOut = async () => {
   try {
     await signOut(auth);
