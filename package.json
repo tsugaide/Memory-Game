@@ -10,8 +10,10 @@
     "tailwind": "npx tailwindcss -i ./input.css -o ./output.css --watch"
   },
   "dependencies": {
+    "firebase": "^11.2.0",
     "pinia": "^2.3.0",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
