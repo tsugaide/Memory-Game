@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { auth } from "@/firebase";
-import { signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 const logOut = async () => {
   try {
     await signOut(auth);
@@ -10,12 +10,13 @@ const logOut = async () => {
     console.error("Error logging out:", error.message);
   }
 };
-
-const user = auth.currentUser;
 const name = ref("");
-if (user) {
-  name.value = user.displayName; // Nama pengguna
-}
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    name.value = user.displayName;
+  } else {
+  }
+});
 </script>
 <template>
   <div
