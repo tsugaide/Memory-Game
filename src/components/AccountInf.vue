@@ -3,7 +3,7 @@ import { RouterLink } from "vue-router";
 </script>
 <template>
   <div
-    class="absolute right-10 flex flex-col justify-center gap-4 bg-blue-400 p-3"
+    class="absolute right-10 top-16 flex flex-col justify-center gap-4 bg-blue-400 p-3"
   >
     <div class="flex gap-2 items-center">
       <svg

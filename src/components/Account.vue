@@ -20,9 +20,7 @@ onAuthStateChanged(auth, (user) => {
 </script>
 
 <template>
-  <div class="flex justify-end mx-10 mt-10">
-    <Avatar @click="avatarClick = !avatarClick" />
-  </div>
+  <Avatar @click="avatarClick = !avatarClick" />
   <template v-if="avatarClick">
     <AccountInf v-if="!isLogin" />
     <AccountInf2 v-if="isLogin" />
