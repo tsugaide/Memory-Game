@@ -11,7 +11,7 @@ const levelClick = () => {
   <div class="absolute top-10 left-10">
     <button
       @click="levelClick"
-      class="text-sm text-center text-white bg-[url(/src/assets/btnLevel.svg)] w-20 h-10 bg-contain bg-no-repeat bg-center"
+      class="text-xs text-center text-white bg-[url(/src/assets/btnLevel.svg)] w-16 h-8 bg-contain bg-no-repeat bg-center"
     >
       Pilih Level
     </button>

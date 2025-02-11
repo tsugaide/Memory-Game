@@ -1,19 +1,29 @@
 <script setup>
 import { db } from "@/firebase";
-import { query, get, orderByChild, limitToFirst } from "firebase/database";
+import {
+  query,
+  get,
+  orderByChild,
+  limitToFirst,
+  limitToLast,
+} from "firebase/database";
 import { ref as dbRef } from "firebase/database";
-import { reactive } from "vue";
+import { reactive, computed, ref } from "vue";
+import Balon from "@/components/Balon.vue";
 
-const players = reactive([]);
+const players = ref([]);
+
 const playersRef = dbRef(db, "players");
 
 const playersQuery = query(playersRef, orderByChild("score"), limitToFirst(20));
 get(playersQuery)
   .then((snapshot) => {
     if (snapshot.exists()) {
+      const tempArray = [];
       snapshot.forEach((child) => {
-        players.push({ ...child.val() });
+        tempArray.push({ ...child.val() });
       });
+      players.value = tempArray.reverse();
     } else {
       console.log("No data available");
     }
@@ -23,10 +33,15 @@ get(playersQuery)
   });
 </script>
 <template>
-  <h1>leaderboard</h1>
-  <ul>
-    <li v-for="(player, index) in players" :key="index">
-      {{ index + 1 }} {{ player.name }}: {{ player.score }}
-    </li>
-  </ul>
+  <h1 class="font-semibold font-pixelify text-center mt-5 text-2xl">
+    Leaderboard
+  </h1>
+  <div class="flex justify-center flex-col items-center mt-7">
+    <Balon
+      v-for="(player, index) in players"
+      :name="player.name"
+      :score="player.score"
+      :rank="index + 1"
+    />
+  </div>
 </template>
